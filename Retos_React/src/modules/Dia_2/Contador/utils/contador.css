@@ -1,0 +1,28 @@
+.suma{
+    border: 2px solid #00FF7F;
+    margin: 10px;
+}
+
+.resta{
+    border: 2px solid #f7703f;
+    margin-right: 5px;
+}
+
+.suma:hover{
+    background-color: #00FF7F;
+    border: 2px solid black;
+    background-position: top;
+    color: white;
+}
+
+.resta:hover{
+    background-color:#f7703f;
+    border: 2px solid black;
+    color: white;
+}
+
+.contador:hover{
+    background-color: #868686;
+    border: 2px solid #e783f0;
+    transition: 0,8s;
+}

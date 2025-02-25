@@ -1,0 +1,6 @@
+.formulario:hover{
+    background-color: #868686;
+    border: 2px solid #e783f0;
+    transition: 0,8s;
+}
+
