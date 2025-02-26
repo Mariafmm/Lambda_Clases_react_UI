@@ -3,6 +3,7 @@ import Bienvenidos from "./modules/Dia_1/Bienvenida/components/Bienvenida";
 import ListaProductos from "./modules/Dia_1/Productos/components/Lista";
 import Contador from "./modules/Dia_2/Contador/components/Contador";
 import FormularioInteractivo from "./modules/Dia_2/Formulario/components/Formulario";
+import Usuarios from "./modules/Dia_3/components/consumir";
 import "./App.css";
 
 function App() {
@@ -35,6 +36,12 @@ function App() {
       <FormularioInteractivo></FormularioInteractivo>
       </div>
     )
+  } else if(pantalla ==3){
+    contenido = (
+      <div>
+      <Usuarios></Usuarios>
+      </div>
+    )
   }
 
   return (
@@ -43,6 +50,7 @@ function App() {
       <h1 className="actividad">Actividades de React</h1>
       <button className="dias" onClick={() => setPantalla(1)}>Día 1</button>
       <button className="dias" onClick={() => setPantalla(2)}>Día 2</button>
+      <button className="dias" onClick={() => setPantalla(3)}>Día 3</button>
       </div>
       {contenido} {/* Renderiza el contenido dependiendo de pantalla */}
     </>
