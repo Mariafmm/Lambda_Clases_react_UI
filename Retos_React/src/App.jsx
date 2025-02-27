@@ -1,59 +1,28 @@
-import { useState } from "react";
+import Sidebar from "./modules/Core/Sidebar/components/Sidebar";
 import Bienvenidos from "./modules/Dia_1/Bienvenida/components/Bienvenida";
 import ListaProductos from "./modules/Dia_1/Productos/components/Lista";
 import Contador from "./modules/Dia_2/Contador/components/Contador";
 import FormularioInteractivo from "./modules/Dia_2/Formulario/components/Formulario";
-import Usuarios from "./modules/Dia_3/components/consumir";
+import Usuarios from "./modules/Dia_3/consumo_api/components/consumir";
+import ListaUser from "./modules/Dia_4/Lista_usuarios/componets/Lista";
+import Perfil from "./modules/Dia_4/Perfil_Usuarios/componets/Perfil";
 import "./App.css";
 
+import { Routes, Route } from 'react-router-dom'
+
 function App() {
-  const [pantalla, setPantalla] = useState(0); // Estado para cambiar la pantalla
   const nombre = "Maria_f";
   const productos = { Salchichon: 1500, Limon: 200, Arepa: 2000, Chocorramo: 5000 };
-
-  let contenido; // Variable para almacenar el contenido dinámico
-
-  if (pantalla === 1) {
-    contenido = (
-      <div>
-        {/* Bienvenida */}
-        <div className="content hover">
-          <h2>Bienvenid@</h2>
-          <Bienvenidos nombre={nombre} />
-        </div>
-
-        {/* Lista de productos */}
-        <div className="productos-content">
-          <h3 className="titulo">Lista de Productos</h3>
-          <ListaProductos lista={productos} />
-        </div>
-      </div>
-    );
-  } else if (pantalla === 2){
-    contenido = (
-      <div>
-      <Contador></Contador>
-      <FormularioInteractivo></FormularioInteractivo>
-      </div>
-    )
-  } else if(pantalla ==3){
-    contenido = (
-      <div>
-      <Usuarios></Usuarios>
-      </div>
-    )
-  }
-
   return (
-    <>
-      <div className="titulo_p">
-      <h1 className="actividad">Actividades de React</h1>
-      <button className="dias" onClick={() => setPantalla(1)}>Día 1</button>
-      <button className="dias" onClick={() => setPantalla(2)}>Día 2</button>
-      <button className="dias" onClick={() => setPantalla(3)}>Día 3</button>
-      </div>
-      {contenido} {/* Renderiza el contenido dependiendo de pantalla */}
-    </>
+    <Routes>
+        <Route path='' element={<Sidebar/>}>
+          <Route path='/dia_1' element={ <>  <Bienvenidos nombre={nombre} /> <ListaProductos lista={productos} /> </>}/>
+          <Route path='/dia_2' element={ <>  <Contador/> <FormularioInteractivo/> </>}/>
+          <Route path='/dia_3' element={ <>  <Usuarios/> </>}/>
+          <Route path='/dia_4' element={<ListaUser/>}/>
+          <Route path='/perfil/:id' element={<Perfil/>}/>
+        </Route>
+    </Routes>
   );
 }
 

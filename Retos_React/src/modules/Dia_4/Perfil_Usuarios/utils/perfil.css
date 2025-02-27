@@ -1,0 +1,30 @@
+/* .content {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  } */
+  
+  .content p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    margin: 5px 0;
+    width: 80%;
+    margin-left: 10%;
+  }
+  
+  .content strong {
+    width: 100px; /* Ajusta el ancho de los títulos */
+    text-align: left;
+    flex-shrink: 0; /* Evita que se reduzca el título */
+  }
+  
+  .content span {
+    flex-grow: 1; /* Hace que el valor se ajuste sin excesivo espacio */
+    text-align: left;
+  }
+  

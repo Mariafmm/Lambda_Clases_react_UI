@@ -89,15 +89,6 @@
     border: 2px solid black;
     color: white;
 }
-/* .titulo_p{
-  margin-top: -60%;
-  border: 2px solid black;
-  border-radius: 0 0 15px 15px;
-  border-top: none;
-  padding: 20px;
-  background-color: #fc9541;
-  z-index: 1000; 
-} */
 
 .titulo_p {
   position: fixed; /* Fijar en la parte superior */

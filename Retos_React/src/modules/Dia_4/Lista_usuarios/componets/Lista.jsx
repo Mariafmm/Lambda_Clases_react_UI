@@ -1,9 +1,9 @@
-import api from "../../../services/api";
-import {useEffect, useState} from "react";
+import api from "../../../../services/api";
+import React, {useEffect, useState} from "react";
+import {useNavigate, Outlet} from 'react-router-dom'
 
-
-
-function Usuarios(){
+function ListaUser(){
+    const navigate = useNavigate()
     const [data, setData] = useState(null);
     const [loading, setLoad] = useState(true);
 
@@ -11,7 +11,6 @@ function Usuarios(){
         api.get('users')
         .then(result =>{
             setData(result.data)
-            console.log(result)
             setLoad(false);
         })
         .catch(error => {
@@ -33,14 +32,18 @@ function Usuarios(){
             {data.map((result)=>(
                 <li  key={result.id}>{result.name}
              <ul>
-                <li key={result.id}>{result.email}</li>
+                <li onClick={()=>navigate(`/perfil/${result.id}`)} key={result.id}>Perfil</li>
              </ul>
              </li>
             ))}
         </ul>
+        
+        <div className="flex">
+            <Outlet/>
+        </div>
         </div>
     )
        
 } 
 
-export default Usuarios;
+export default ListaUser;
